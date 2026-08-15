@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Built Further">
+  <g transform="translate(7 7) scale(1.65) translate(14.5 14.5) skewY(-13) translate(-14.5 -14.5)">
+    <rect x="1" y="12" width="7" height="17" fill="#354658" />
+    <rect x="11" y="2" width="7" height="27" fill="#354658" />
+    <rect x="21" y="8" width="7" height="21" fill="#88C7E6" />
+  </g>
+</svg>
