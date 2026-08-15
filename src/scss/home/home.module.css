@@ -1,0 +1,8 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #e4e0dc;
+  overflow: hidden;
+  height: 80vh;
+}/*# sourceMappingURL=home.module.css.map */
