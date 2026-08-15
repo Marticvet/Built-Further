@@ -38,7 +38,7 @@ export default async function Home({ params }: Props) {
 
         <section className={styles.servicesSection}><div className="siteContainer">
             <div className={styles.sectionHeading}><div><p className="sectionEyebrow">{t.home.services.eyebrow}</p><h2>{t.home.services.titleLine1}<br />{t.home.services.titleLine2}</h2></div><p>{t.home.services.description}</p></div>
-            <div className={styles.serviceGrid}>{t.services.items.map((service, index) => <Link className={`${styles.serviceCard} ${index === 3 ? styles.serviceFeatured : ""}`} href={localePath(lang, `/services/${service.slug}`)} key={service.slug}><span>{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.description}</p><b>{t.common.actions.exploreService} <i aria-hidden="true">→</i></b></Link>)}</div>
+            <div className={styles.serviceGrid}>{t.services.items.map((service, index) => <Link className={styles.serviceCard} href={localePath(lang, `/services/${service.slug}`)} key={service.slug}><span>{String(index + 1).padStart(2, "0")}</span><h3>{service.title}</h3><p>{service.description}</p><b>{t.common.actions.exploreService} <i aria-hidden="true">→</i></b></Link>)}</div>
             <Link className="darkButton" href={localePath(lang, "/services")}>{t.common.actions.exploreServices} <span aria-hidden="true">→</span></Link>
         </div></section>
 

@@ -96,6 +96,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .languageMobile a { padding: 8px 12px !important; color: var(--navy); background: #f6f8f9; border: 0 !important; font-size: 11px !important; font-weight: 750 !important; }
 .languageMobile a.isActive { background: #dff1f9; box-shadow: inset 0 -2px var(--blue); }
 
+.notFoundPage { position: relative; min-height: calc(100svh - 88px); display: grid; align-items: center; overflow: hidden; padding: 110px 0; background: radial-gradient(circle at 78% 48%, rgba(136,199,230,.19), transparent 24%), #f7f8f9; }
+.notFoundContent { position: relative; z-index: 1; }
+.notFoundCopy { max-width: 790px; }
+.notFoundCopy h1 { margin-top: 30px; color: var(--ink); font-size: clamp(58px,7vw,100px); line-height: .98; font-weight: 520; letter-spacing: -.025em; }
+.notFoundCopy > p:not(.sectionEyebrow) { max-width: 650px; margin-top: 31px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+.notFoundCopy > .darkButton { margin-top: 39px; }
+.notFoundCode { position: absolute; right: -2vw; top: 50%; color: rgba(136,199,230,.16); font-size: clamp(220px,31vw,520px); line-height: .75; font-weight: 800; letter-spacing: -.09em; transform: translateY(-50%); user-select: none; pointer-events: none; }
+
 .finalCta { padding: 118px 0 110px; overflow: hidden; background: #17232e; color: #fff; }
 .finalCtaInner { position: relative; }
 .finalCtaInner::after { content: ""; position: absolute; right: -80px; top: -170px; width: 450px; height: 450px; border: 1px solid rgba(136,199,230,.12); border-radius: 50%; box-shadow: 0 0 0 70px rgba(136,199,230,.025), 0 0 0 140px rgba(136,199,230,.018); }
@@ -150,6 +158,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .siteContainer { width: calc(100% - 32px); }
   .siteBrand { font-size: 16px; }
   .siteBrandMark { transform: scale(.9) skewY(-13deg); transform-origin: left center; }
+  .notFoundPage { min-height: calc(100svh - 74px); padding: 82px 0; }
+  .notFoundCopy h1 { font-size: clamp(48px,15vw,68px); }
+  .notFoundCopy > p:not(.sectionEyebrow) { font-size: 16px; }
+  .notFoundCode { right: -16vw; top: 25%; font-size: 68vw; }
   .finalCta { padding: 85px 0; }
   .finalCta h2 { font-size: clamp(43px,13vw,65px); }
   .finalCtaInner > div { align-items: flex-start; flex-direction: column; }

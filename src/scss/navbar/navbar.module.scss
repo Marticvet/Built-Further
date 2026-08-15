@@ -1,4 +1,4 @@
-.header { position: relative; z-index: 10; background: #fff; border-bottom: 1px solid #edf0f2; }
+.header { position: sticky; z-index: 50; top: 0; background: rgba(255,255,255,.97); border-bottom: 1px solid #edf0f2; box-shadow: 0 8px 28px rgba(23,32,42,.04); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .navbar { width: min(100% - 64px, 1440px); height: 88px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: clamp(18px,2.3vw,38px); }
 .navigationLinks { display: flex; align-items: center; gap: clamp(24px, 3vw, 46px);
     a { position: relative; color: #354658; text-decoration: none; font-size: 14px; font-weight: 520; transition: color .2s ease;

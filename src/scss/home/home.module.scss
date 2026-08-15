@@ -43,16 +43,23 @@
     > p { max-width: 430px; padding-bottom: 5px; color: #596675; font-size: 16px; line-height: 1.75; }
 }
 .serviceGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-bottom: 42px; }
-.serviceCard { min-height: 340px; padding: 36px 34px; display: flex; flex-direction: column; color: #17202a; background: #f4f6f7; border: 1px solid #e2e6ea; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease;
+.serviceCard { min-height: 340px; padding: 36px 34px; display: flex; flex-direction: column; color: #17202a; background: #f4f6f7; border: 1px solid #e2e6ea; text-decoration: none; transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
     > span { color: #88c7e6; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
     h3 { margin-top: 49px; font-size: 27px; line-height: 1.1; font-weight: 580; letter-spacing: .005em; }
-    p { margin-top: 18px; color: #596675; font-size: 14px; line-height: 1.7; }
-    b { margin-top: auto; padding-top: 25px; color: #354658; font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    p { margin-top: 18px; color: #596675; font-size: 14px; line-height: 1.7; transition: color .25s ease; }
+    b { margin-top: auto; padding-top: 25px; color: #354658; font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; transition: color .25s ease; }
     b i { float: right; font-size: 16px; font-style: normal; transition: transform .2s ease; }
-    &:hover { transform: translateY(-5px); box-shadow: 0 24px 50px rgba(41,55,69,.09); } &:hover b i { transform: translateX(5px); }
+    &:focus-visible { color: #fff; background: #354658; border-color: #354658; outline: 3px solid #88c7e6; outline-offset: 3px; transform: translateY(-5px); box-shadow: 0 24px 50px rgba(41,55,69,.16); }
+    &:focus-visible p { color: #cad2d8; }
+    &:focus-visible b { color: #fff; }
+    &:focus-visible b i { transform: translateX(5px); }
 }
-.serviceFeatured { color: #fff; background: #354658; border-color: #354658;
-    p { color: #cad2d8; } b { color: #fff; }
+@media (hover:hover) {
+    .serviceCard:hover { color: #fff; background: #354658; border-color: #354658; transform: translateY(-5px); box-shadow: 0 24px 50px rgba(41,55,69,.16);
+        p { color: #cad2d8; }
+        b { color: #fff; }
+        b i { transform: translateX(5px); }
+    }
 }
 
 .workSection { padding: 130px 0 145px; color: #fff; background: #263544; }
