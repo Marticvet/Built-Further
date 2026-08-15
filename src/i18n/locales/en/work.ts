@@ -1,0 +1,10 @@
+export const work = {
+    meta: { title: "Work", description: "Explore representative software products, platforms and business systems shaped by Built Further." },
+    hero: { eyebrow: "Concept case studies", title: "Products designed to go further.", description: "Representative product profiles showing how strategy, thoughtful design and durable engineering can come together around real operational needs." },
+    projects: [
+        { slug: "meridian", name: "Meridian", type: "Concept profile · FinTech SaaS", description: "A financial operations platform rebuilt around a clear, scalable event-driven architecture.", services: ["Product Design", "Web Development", "Cloud"], outcome: "A resilient platform foundation designed for faster product evolution.", theme: "blue" },
+        { slug: "northstar", name: "Northstar", type: "Concept profile · Logistics", description: "One operational view connecting planning, field teams and real-time delivery information.", services: ["Discovery", "UX Design", "Systems Engineering"], outcome: "A simpler workflow and one reliable source of operational truth.", theme: "sand" },
+        { slug: "lumen", name: "Lumen", type: "Concept profile · ClimateTech", description: "A decision-support product that turns complex environmental data into clear next actions.", services: ["Product Strategy", "Data Visualisation", "Platform"], outcome: "Complex information made useful for day-to-day decisions.", theme: "mint" },
+    ],
+    detail: { metaSuffix: "Case Study", title: "A product foundation designed to keep moving.", description: "The work brought the product experience, operational requirements and technical architecture into one coherent system.", stages: ["Understand the operation", "Clarify the product", "Engineer the foundation", "Enable the next stage"], outcomeTitle: "The outcome.", outcomeDescription: "The product is structured so future decisions can be made deliberately, with less friction between the business, the experience and the technology beneath it." },
+} as const;

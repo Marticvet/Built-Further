@@ -1,0 +1,11 @@
+export const common = {
+    brand: { name: "Built Further", tagline: "Софтуерни продукти, създадени за това, което предстои." },
+    nav: { home: "Начало", services: "Услуги", work: "Проекти", process: "Процес", about: "За нас", contact: "Контакти", startProject: "Започнете проект" },
+    languages: { label: "Език", current: "Текущ език", en: "English", bg: "Български", de: "Deutsch" },
+    accessibility: { mainNavigation: "Основна навигация", openNavigation: "Отворете навигацията", brandHome: "Начална страница на Built Further", productPreview: "Преглед на продуктовия интерфейс на {name}", dashboardPreview: "Преглед на продуктово табло", performanceChart: "Графика с нарастващи резултати", selectLanguage: "Изберете език" },
+    actions: { discussProject: "Обсъдете проекта си", bookCall: "Запазете разговор", exploreServices: "Разгледайте всички услуги", exploreService: "Разгледайте услугата", exploreCapability: "Разгледайте възможността", viewWork: "Вижте проектите ни", viewCaseStudy: "Вижте проекта", seeAllWork: "Всички проекти", seeProcess: "Как работим", whyUs: "Защо да работите с нас", sendBrief: "Изпратете запитване" },
+    finalCta: { eyebrow: "Нека поговорим", titleLine1: "Имате ли нещо, което", titleLine2: "заслужава да бъде изградено добре?", prompt: "Нека го развием", accent: "по-далеч.", note: "Без ангажимент. Разкажете ни какво създавате и ние ще ви кажем как бихме подходили." },
+    footer: { services: "Услуги", explore: "Разгледайте", start: "Започнете нещо", tellUs: "Разкажете ни за проекта си", location: "Европа · Работим глобално", copyright: "Built Further", closing: "Създадено с мисъл. Проектирано да издържи." },
+    notFound: { eyebrow: "Страницата не е намерена", title: "Тази страница още не е изградена.", description: "Адресът може да е променен или страницата вече да не съществува.", action: "Към началото" },
+    meta: { defaultTitle: "Built Further | Софтуер по поръчка", defaultDescription: "Персонализиран софтуер, SaaS платформи и дигитални продукти за дългосрочен растеж.", keywords: ["софтуер по поръчка", "разработка на SaaS", "уеб приложения", "бизнес системи", "разработка на софтуерни продукти"] },
+} as const;

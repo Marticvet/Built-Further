@@ -1,12 +1,13 @@
 import Link from "next/link";
+import { localePath, type Locale } from "@/i18n/config";
 
-type BrandProps = { inverse?: boolean; compact?: boolean };
+type BrandProps = { locale: Locale; name: string; ariaLabel: string; inverse?: boolean; compact?: boolean };
 
-export default function Brand({ inverse = false, compact = false }: BrandProps) {
+export default function Brand({ locale, name, ariaLabel, inverse = false, compact = false }: BrandProps) {
     return (
-        <Link className={`siteBrand ${inverse ? "siteBrandInverse" : ""}`} href="/" aria-label="Built Further home">
+        <Link className={`siteBrand ${inverse ? "siteBrandInverse" : ""}`} href={localePath(locale)} aria-label={ariaLabel}>
             <span className="siteBrandMark" aria-hidden="true"><i /><i /><i /></span>
-            {!compact && <span>Built Further</span>}
+            {!compact && <span>{name}</span>}
         </Link>
     );
 }

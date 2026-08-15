@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Contact form email
+
+Project briefs and appointment requests are delivered through Resend. Copy `.env.example` to `.env.local`, add a `RESEND_API_KEY`, and set `RESEND_FROM_EMAIL` to an address on a verified sending domain. `CONTACT_RECIPIENT_EMAIL` controls the inbox that receives every form submission and currently defaults to `martinntsvetanov@gmail.com`.
+
 ## Getting Started
 
 First, run the development server:

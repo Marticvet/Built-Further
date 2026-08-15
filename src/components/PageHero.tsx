@@ -18,7 +18,7 @@ export default function PageHero({ eyebrow, title, intro, action, dark = false, 
                     <p className={`sectionEyebrow ${dark ? "sectionEyebrowLight" : ""}`}>{eyebrow}</p>
                     <h1>{title}</h1>
                     <p>{intro}</p>
-                    {action && <Link className={dark ? "lightButton" : "darkButton"} href={action.href}>{action.label} <span>→</span></Link>}
+                    {action && <Link className={dark ? "lightButton" : "darkButton"} href={action.href}>{action.label} <span aria-hidden="true">→</span></Link>}
                 </div>
                 {children && <div className={styles.pageHeroVisual}>{children}</div>}
             </div>

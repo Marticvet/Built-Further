@@ -1,19 +1,19 @@
 import Link from "next/link";
 import Brand from "./Brand";
+import { localePath, type Locale } from "@/i18n/config";
+import type { CommonDictionary, Dictionary } from "@/i18n/get-dictionary";
 
-const serviceLinks = [["SaaS platforms", "/services/saas-platforms"], ["Web applications", "/services/web-applications"], ["Mobile applications", "/services/mobile-applications"], ["Business systems", "/services/business-systems"]] as const;
-const exploreLinks = [["Work", "/work"], ["Process", "/process"], ["About", "/about"], ["Contact", "/contact"]] as const;
-
-export default function Footer() {
+export default function Footer({ locale, t, services }: { locale: Locale; t: CommonDictionary; services: Dictionary["services"]["items"] }) {
+    const exploreLinks = [[t.nav.work, "/work"], [t.nav.process, "/process"], [t.nav.about, "/about"], [t.nav.contact, "/contact"], [t.actions.bookCall, "/book"]] as const;
     return (
         <footer className="footer">
             <div className="siteContainer footerGrid">
-                <div className="footerBrand"><Brand inverse /><p>Software products engineered<br />for what comes next.</p></div>
-                <div className="footerColumn"><h3>Services</h3>{serviceLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
-                <div className="footerColumn"><h3>Explore</h3>{exploreLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div>
-                <div className="footerColumn footerContact"><h3>Start something</h3><Link href="/contact">Tell us about your project <span>→</span></Link><p>Europe · Working globally</p></div>
+                <div className="footerBrand"><Brand locale={locale} name={t.brand.name} ariaLabel={t.accessibility.brandHome} inverse /><p>{t.brand.tagline}</p></div>
+                <div className="footerColumn"><h3>{t.footer.services}</h3>{services.slice(0, 4).map((service) => <Link href={localePath(locale, `/services/${service.slug}`)} key={service.slug}>{service.title}</Link>)}</div>
+                <div className="footerColumn"><h3>{t.footer.explore}</h3>{exploreLinks.map(([label, path]) => <Link href={localePath(locale, path)} key={path}>{label}</Link>)}</div>
+                <div className="footerColumn footerContact"><h3>{t.footer.start}</h3><Link href={localePath(locale, "/contact")}>{t.footer.tellUs} <span aria-hidden="true">→</span></Link><p>{t.footer.location}</p></div>
             </div>
-            <div className="siteContainer footerBottom"><span>© {new Date().getFullYear()} Built Further</span><span>Built with intent. Engineered to last.</span></div>
+            <div className="siteContainer footerBottom"><span>© {new Date().getFullYear()} {t.footer.copyright}</span><span>{t.footer.closing}</span></div>
         </footer>
     );
 }

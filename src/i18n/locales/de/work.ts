@@ -1,0 +1,10 @@
+export const work = {
+    meta: { title: "Projekte", description: "Entdecken Sie repräsentative Softwareprodukte, Plattformen und Geschäftssysteme von Built Further." },
+    hero: { eyebrow: "Konzeptionelle Fallstudien", title: "Produkte für den nächsten Schritt.", description: "Repräsentative Produktprofile zeigen, wie Strategie, durchdachtes Design und dauerhaftes Engineering reale operative Anforderungen lösen können." },
+    projects: [
+        { slug: "meridian", name: "Meridian", type: "Konzeptprofil · FinTech SaaS", description: "Eine Plattform für Finanzprozesse, neu aufgebaut auf einer klaren, skalierbaren ereignisgesteuerten Architektur.", services: ["Produktdesign", "Webentwicklung", "Cloud"], outcome: "Ein belastbares Plattformfundament für schnellere Produktentwicklung.", theme: "blue" },
+        { slug: "northstar", name: "Northstar", type: "Konzeptprofil · Logistik", description: "Eine operative Sicht, die Planung, Außenteams und Lieferinformationen in Echtzeit verbindet.", services: ["Discovery", "UX-Design", "System Engineering"], outcome: "Ein einfacherer Workflow und eine verlässliche Quelle für operative Informationen.", theme: "sand" },
+        { slug: "lumen", name: "Lumen", type: "Konzeptprofil · ClimateTech", description: "Ein Entscheidungsprodukt, das komplexe Umweltdaten in klare nächste Schritte verwandelt.", services: ["Produktstrategie", "Datenvisualisierung", "Plattform"], outcome: "Komplexe Informationen werden für tägliche Entscheidungen nutzbar.", theme: "mint" },
+    ],
+    detail: { metaSuffix: "Fallstudie", title: "Ein Produktfundament, das in Bewegung bleibt.", description: "Die Arbeit führte Produkterlebnis, operative Anforderungen und technische Architektur zu einem zusammenhängenden System zusammen.", stages: ["Betrieb verstehen", "Produkt klären", "Fundament entwickeln", "Nächste Phase ermöglichen"], outcomeTitle: "Das Ergebnis.", outcomeDescription: "Das Produkt ist so strukturiert, dass künftige Entscheidungen bewusst getroffen werden können — mit weniger Reibung zwischen Geschäft, Erlebnis und Technologie." },
+} as const;

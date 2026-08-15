@@ -1,0 +1,11 @@
+export const common = {
+    brand: { name: "Built Further", tagline: "Softwareprodukte, entwickelt für das, was als Nächstes kommt." },
+    nav: { home: "Startseite", services: "Leistungen", work: "Projekte", process: "Prozess", about: "Über uns", contact: "Kontakt", startProject: "Projekt starten" },
+    languages: { label: "Sprache", current: "Aktuelle Sprache", en: "English", bg: "Български", de: "Deutsch" },
+    accessibility: { mainNavigation: "Hauptnavigation", openNavigation: "Navigation öffnen", brandHome: "Built Further Startseite", productPreview: "Vorschau der Produktoberfläche von {name}", dashboardPreview: "Vorschau des Produkt-Dashboards", performanceChart: "Diagramm mit steigender Leistung", selectLanguage: "Sprache auswählen" },
+    actions: { discussProject: "Projekt besprechen", bookCall: "Gespräch buchen", exploreServices: "Alle Leistungen entdecken", exploreService: "Leistung entdecken", exploreCapability: "Kompetenz entdecken", viewWork: "Unsere Projekte", viewCaseStudy: "Projekt ansehen", seeAllWork: "Alle Projekte", seeProcess: "So arbeiten wir", whyUs: "Warum mit uns arbeiten", sendBrief: "Projektanfrage senden" },
+    finalCta: { eyebrow: "Ein Gespräch beginnen", titleLine1: "Haben Sie etwas, das", titleLine2: "richtig gebaut werden sollte?", prompt: "Lassen Sie es uns", accent: "weiterbringen.", note: "Unverbindlich. Erzählen Sie uns, was Sie entwickeln, und wir zeigen Ihnen, wie wir vorgehen würden." },
+    footer: { services: "Leistungen", explore: "Entdecken", start: "Etwas beginnen", tellUs: "Erzählen Sie uns von Ihrem Projekt", location: "Europa · Weltweit tätig", copyright: "Built Further", closing: "Mit Absicht gestaltet. Für Dauer entwickelt." },
+    notFound: { eyebrow: "Seite nicht gefunden", title: "Diese Seite wurde noch nicht gebaut.", description: "Die Adresse wurde möglicherweise geändert oder die Seite existiert nicht mehr.", action: "Zur Startseite" },
+    meta: { defaultTitle: "Built Further | Individuelle Softwareentwicklung", defaultDescription: "Individuelle Software, SaaS-Plattformen und digitale Produkte für langfristiges Wachstum.", keywords: ["individuelle Softwareentwicklung", "SaaS-Entwicklung", "Webanwendungen", "Geschäftssysteme", "Softwareproduktentwicklung"] },
+} as const;

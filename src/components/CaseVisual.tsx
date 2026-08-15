@@ -1,8 +1,8 @@
-type CaseVisualProps = { theme: "blue" | "sand" | "mint"; name: string };
+type CaseVisualProps = { theme: "blue" | "sand" | "mint"; name: string; previewLabel: string };
 
-export default function CaseVisual({ theme, name }: CaseVisualProps) {
+export default function CaseVisual({ theme, name, previewLabel }: CaseVisualProps) {
     return (
-        <div className={`caseVisual caseVisual-${theme}`} aria-label={`${name} product interface preview`}>
+        <div className={`caseVisual caseVisual-${theme}`} aria-label={previewLabel.replace("{name}", name)}>
             <div className="caseWindow">
                 <div className="caseWindowBar"><i /><i /><i /><span>{name}</span></div>
                 <div className="caseWindowBody">
