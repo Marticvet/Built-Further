@@ -4,7 +4,7 @@ export const home = {
     dashboard: { overview: "Übersicht", greeting: "Guten Morgen", focus: "Ihr Unternehmen im Fokus.", activeUsers: "Aktive Nutzer", conversion: "Konversion", revenue: "Umsatz", performance: "Leistung", period: "Letzte 6 Monate", growth: "Wachstum" },
     capabilities: ["Webplattformen", "SaaS-Produkte", "Mobile Apps", "Geschäftssysteme", "Cloud Engineering"],
     services: { eyebrow: "Was wir entwickeln", titleLine1: "Software, ausgerichtet auf", titleLine2: "das Unternehmen dahinter.", description: "Produkte, die heute das richtige Problem lösen, ohne morgen ein größeres zu schaffen." },
-    work: { eyebrow: "Produktprofile", titleLine1: "Produkte, entwickelt", titleLine2: "für den nächsten Schritt." },
+    work: { eyebrow: "Ausgewählte Projekte", titleLine1: "Produkte, entwickelt", titleLine2: "für den nächsten Schritt." },
     principles: { eyebrow: "Warum Built Further", titleLine1: "Gebaut für das,", titleLine2: "was als Nächstes kommt.", description: "Software sollte Möglichkeiten für die Zukunft schaffen, nicht begrenzen. Diese Prinzipien prägen jede unserer Entscheidungen." },
     process: { eyebrow: "Unser Prozess", title: "Von der Idee zur Produktion." },
     technology: { eyebrow: "Technologien", titleLine1: "Moderne Werkzeuge.", titleLine2: "Bewusst gewählt.", description: "Wir wählen Technologie nach Produktpassung, Wartbarkeit und dem Team, das sie übernehmen wird — nicht nach Trends.", groups: [{ category: "Frontend", items: ["React", "Next.js", "TypeScript"] }, { category: "Backend", items: ["Node.js", ".NET", "Python"] }, { category: "Infrastruktur", items: ["AWS", "Azure", "Docker", "PostgreSQL"] }, { category: "Mobile", items: ["React Native", "Flutter"] }] },

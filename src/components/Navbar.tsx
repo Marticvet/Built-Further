@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Brand from "./Brand";
 import LanguageSelector from "./LanguageSelector";
+import MobileNavigation from "./MobileNavigation";
 import { localePath, type Locale } from "@/i18n/config";
 import type { CommonDictionary } from "@/i18n/get-dictionary";
 import styles from "../scss/navbar/navbar.module.scss";
@@ -14,10 +15,7 @@ export default function Navbar({ locale, t }: { locale: Locale; t: CommonDiction
                 <div className={styles.navigationLinks}>{links.map(([label, path]) => <Link key={path} href={localePath(locale, path)}>{label}</Link>)}</div>
                 <div className={styles.desktopLanguage}><LanguageSelector locale={locale} t={t.languages} accessibilityLabel={t.accessibility.selectLanguage} /></div>
                 <Link className={styles.startProject} href={localePath(locale, "/contact")}>{t.nav.startProject} <span aria-hidden="true">→</span></Link>
-                <details className={styles.mobileMenu}>
-                    <summary aria-label={t.accessibility.openNavigation}><span /><span /></summary>
-                    <div><LanguageSelector mobile locale={locale} t={t.languages} accessibilityLabel={t.accessibility.selectLanguage} />{links.map(([label, path]) => <Link key={path} href={localePath(locale, path)}>{label}</Link>)}<Link href={localePath(locale, "/contact")}>{t.nav.contact}</Link><Link href={localePath(locale, "/book")}>{t.actions.bookCall}</Link></div>
-                </details>
+                <MobileNavigation locale={locale} t={t} links={links} />
             </nav>
         </header>
     );

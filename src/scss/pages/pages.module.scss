@@ -68,7 +68,7 @@
         border-bottom: 1px solid #dce2e7;
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: .08em;
+        letter-spacing: 3px;
         text-transform: uppercase;
     }
 
@@ -160,7 +160,7 @@
         color: #88c7e6;
         font-size: 11px;
         font-weight: 800;
-        letter-spacing: .13em;
+        letter-spacing: 3px;
     }
 
     h2 {
@@ -184,7 +184,7 @@
         color: #354658;
         font-size: 11px;
         font-weight: 800;
-        letter-spacing: .1em;
+        letter-spacing: 3px;
         text-transform: uppercase;
     }
 
@@ -261,7 +261,7 @@
         color: #6aaeca;
         font-size: 10px;
         font-weight: 800;
-        letter-spacing: .13em;
+        letter-spacing: 3px;
         text-transform: uppercase;
     }
 
@@ -302,11 +302,14 @@
     margin-top: 22px;
 
     span {
-        padding: 6px 9px;
-        color: #667480;
-        border: 1px solid #dce2e7;
+        padding: 8px 11px;
+        color: #273b4e;
+        background: #edf7fb;
+        border: 1px solid #b7ddea;
+        box-shadow: inset 0 -2px rgba(107, 174, 208, .18);
         font-size: 8px;
-        letter-spacing: .05em;
+        font-weight: 750;
+        letter-spacing: 1.1px;
         text-transform: uppercase;
     }
 }
@@ -457,6 +460,76 @@
     line-height: 1.8;
 }
 
+.caseNarrative {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7%;
+    margin-top: 58px;
+}
+
+.caseNarrative article {
+    min-width: 0;
+    padding-top: 31px;
+    border-top: 2px solid #88c7e6;
+}
+
+.caseNarrative h2,
+.projectGalleryHeading h2 {
+    color: #17202a;
+    font-size: clamp(38px, 3.7vw, 56px);
+    line-height: 1.04;
+    font-weight: 540;
+    letter-spacing: -.018em;
+    overflow-wrap: anywhere;
+}
+
+.caseNarrative p {
+    margin-top: 23px;
+    color: #596675;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.technologyBar {
+    display: grid;
+    grid-template-columns: .45fr 1.55fr;
+    align-items: start;
+    gap: 6%;
+    margin-top: 72px;
+    padding-top: 30px;
+    border-top: 1px solid #dce2e7;
+}
+
+.technologyBar h3 {
+    color: #354658;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.technologyBar .tagList {
+    margin-top: 0;
+}
+
+.technologyBar .tagList span {
+    padding: 10px 13px;
+    color: #17202a;
+    background: #dff1f8;
+    border-color: #88c7e6;
+    box-shadow: inset 0 -3px rgba(53, 70, 88, .12), 0 8px 18px rgba(53, 70, 88, .06);
+    font-size: 9px;
+}
+
+.projectGalleryHeading {
+    max-width: 780px;
+    margin-bottom: 58px;
+}
+
+.projectGalleryHeading h2 {
+    margin-top: 25px;
+}
+
 .deliverables {
     margin-top: 70px;
     display: grid;
@@ -485,6 +558,85 @@
     color: #354658;
     font-size: 17px;
     font-weight: 620;
+}
+
+.projectBuild {
+    color: #fff;
+    background: #263544;
+}
+
+.projectBuild .projectGalleryHeading h2 {
+    color: #fff;
+}
+
+.buildGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, .16);
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+}
+
+.buildGrid article {
+    min-width: 0;
+    padding: 34px 31px 39px;
+    border-right: 1px solid rgba(255, 255, 255, .16);
+}
+
+.buildGrid article:first-child {
+    padding-left: 0;
+}
+
+.buildGrid article:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.buildGrid article>span {
+    color: #88c7e6;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.buildGrid h3 {
+    margin-top: 25px;
+    color: #fff;
+    font-size: 23px;
+    line-height: 1.2;
+    font-weight: 620;
+}
+
+.buildGrid p,
+.buildGrid li {
+    color: #cbd4da;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.buildGrid p,
+.buildGrid ul {
+    margin-top: 19px;
+}
+
+.buildGrid ul {
+    display: grid;
+    gap: 13px;
+    list-style: none;
+}
+
+.buildGrid li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.buildGrid li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 2px;
+    background: #88c7e6;
 }
 
 .contactGrid {
@@ -520,7 +672,7 @@
     color: #8a969f;
     font-size: 9px;
     font-weight: 750;
-    letter-spacing: .13em;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
@@ -556,7 +708,7 @@
     color: #354658;
     font-size: 10px;
     font-weight: 800;
-    letter-spacing: .1em;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
@@ -714,9 +866,15 @@
 
     .split,
     .detailIntro,
+    .caseNarrative,
     .contactGrid {
         grid-template-columns: 1fr;
         gap: 48px;
+    }
+
+    .technologyBar {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .deliverables {
@@ -729,6 +887,22 @@
 
     .deliverables div:nth-child(-n+2) {
         border-bottom: 1px solid #dce2e7;
+    }
+
+    .buildGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .buildGrid article,
+    .buildGrid article:first-child,
+    .buildGrid article:last-child {
+        padding: 31px 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .buildGrid article:last-child {
+        border-bottom: 0;
     }
 }
 

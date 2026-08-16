@@ -4,7 +4,7 @@ export const home = {
     dashboard: { overview: "Преглед", greeting: "Добро утро", focus: "Вашият бизнес, на фокус.", activeUsers: "Активни потребители", conversion: "Конверсия", revenue: "Приходи", performance: "Резултати", period: "Последните 6 месеца", growth: "Ръст" },
     capabilities: ["Уеб платформи", "SaaS продукти", "Мобилни приложения", "Бизнес системи", "Облачни решения"],
     services: { eyebrow: "Какво създаваме", titleLine1: "Софтуер, изграден около", titleLine2: "бизнеса зад него.", description: "Продукти, които решават правилния проблем днес, без да създават по-голям утре." },
-    work: { eyebrow: "Продуктови профили", titleLine1: "Продукти, създадени", titleLine2: "да стигнат по-далеч." },
+    work: { eyebrow: "Избрани проекти", titleLine1: "Продукти, създадени", titleLine2: "да стигнат по-далеч." },
     principles: { eyebrow: "Защо Built Further", titleLine1: "Изградени за това,", titleLine2: "което предстои.", description: "Софтуерът трябва да създава възможности за бъдещето, а не да ги ограничава. Тези принципи стоят зад всяко наше решение." },
     process: { eyebrow: "Нашият процес", title: "От идея до продукция." },
     technology: { eyebrow: "Технологии", titleLine1: "Модерни инструменти.", titleLine2: "Избрани с цел.", description: "Избираме технологиите според продукта, поддръжката и екипа, който ще ги притежава — не защото са модерни.", groups: [{ category: "Frontend", items: ["React", "Next.js", "TypeScript"] }, { category: "Backend", items: ["Node.js", ".NET", "Python"] }, { category: "Инфраструктура", items: ["AWS", "Azure", "Docker", "PostgreSQL"] }, { category: "Мобилни", items: ["React Native", "Flutter"] }] },
