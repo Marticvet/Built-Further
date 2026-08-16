@@ -5,9 +5,11 @@ type CaseVisualProps = {
     slug: CaseSlug;
     name: string;
     previewLabel: string;
-    screen?: "primary" | "secondary" | "tertiary";
+    screen?: MobileScreenKey;
     eager?: boolean;
 };
+
+type MobileScreenKey = "primary" | "secondary" | "tertiary" | "quaternary" | "quinary" | "senary";
 
 const webImages: Partial<Record<CaseSlug, string>> = {
     lumynery: "/work/lumynery/home.jpg",
@@ -58,6 +60,46 @@ function FitnessFoodSearch() {
     </div>;
 }
 
+function FitnessMacros() {
+    return <div className="mobileScreen fitnessScreen">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="fitnessTitle"><small>WEEKLY INSIGHT</small><b>Macro balance</b><span>Average intake · Last 7 days</span></div>
+        <div className="macroDashboard">
+            {[["Protein", "74%", "macroPurple"], ["Carbohydrates", "61%", "macroOrange"], ["Fats", "48%", "macroBlue"]].map(([name, value, style]) => <div className="macroProgress" key={name}><span><b>{name}</b><small>{value}</small></span><i><em className={style} style={{ width: value }} /></i></div>)}
+        </div>
+        <div className="nutritionTrend"><span><b>Consistency</b><small>Five-day trend</small></span><div>{[45, 63, 52, 78, 69, 84, 74].map((height, index) => <i key={index} style={{ height: `${height}%` }} />)}</div></div>
+        <div className="mobileNav"><i>⌂</i><i>◫</i><i>＋</i></div>
+    </div>;
+}
+
+function FitnessFoodDetail() {
+    return <div className="mobileScreen fitnessScreen diaryScreen">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="diaryHeading"><small>FOOD DETAIL</small><b>Greek yoghurt</b><span>Plain · 2% fat</span></div>
+        <div className="foodHero"><i>YG</i><span><strong>97</strong><small>kcal / 100g</small></span></div>
+        <div className="nutritionGrid"><span><b>17g</b><small>Protein</small></span><span><b>6g</b><small>Carbs</small></span><span><b>2g</b><small>Fat</small></span><span><b>0g</b><small>Fibre</small></span></div>
+        <div className="portionRow"><span><small>PORTION</small><b>150 grams</b></span><strong>− &nbsp; 1 &nbsp; ＋</strong></div>
+        <span className="fitnessSave">Add to breakfast</span>
+        <div className="mobileNav"><i>⌂</i><i>◫</i><i>＋</i></div>
+    </div>;
+}
+
+function FitnessMealEditor() {
+    return <div className="mobileScreen fitnessScreen diaryScreen">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="diaryHeading"><small>MEAL ENTRY</small><b>Edit breakfast</b><span>Tuesday, 18 August</span></div>
+        <div className="mealEditorCard">
+            <div><small>FOOD</small><b>Rolled oats</b></div>
+            <div><small>AMOUNT</small><b>80 grams</b></div>
+            <div><small>ENERGY</small><b>300 kcal</b></div>
+        </div>
+        <div className="mealSummary"><span><small>Protein</small><b>10g</b></span><span><small>Carbs</small><b>54g</b></span><span><small>Fat</small><b>6g</b></span></div>
+        <span className="fitnessSave">Save changes</span>
+        <small className="removeEntry">Remove from diary</small>
+        <div className="mobileNav"><i>⌂</i><i>◫</i><i>＋</i></div>
+    </div>;
+}
+
 function AutoCareDashboard() {
     return <div className="mobileScreen autoScreen">
         <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
@@ -97,14 +139,50 @@ function AutoCareReminder() {
     </div>;
 }
 
-function MobileVisual({ slug, screen }: { slug: "fitness-tracker" | "autocare"; screen: "primary" | "secondary" | "tertiary" }) {
+function AutoCareVehicle() {
+    return <div className="mobileScreen autoScreen">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="autoHeader"><small>VEHICLE PROFILE</small><b>Vehicle 01</b><span>Active vehicle</span></div>
+        <div className="vehicleProfileHero"><i>⌁</i><span><b>42,360 km</b><small>Current odometer</small></span></div>
+        <div className="vehicleFacts"><span><small>YEAR</small><b>2021</b></span><span><small>FUEL</small><b>Petrol</b></span><span><small>BODY</small><b>SUV</b></span><span><small>PLATE</small><b>AC 2048</b></span></div>
+        <div className="serviceNotice"><i>✓</i><span><b>Documents complete</b><small>Insurance valid until March</small></span></div>
+        <div className="mobileNav autoNav"><i>⌂</i><i>＋</i><i>◫</i></div>
+    </div>;
+}
+
+function AutoCareMap() {
+    return <div className="mobileScreen autoScreen mapScreenMock">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="autoHeader"><small>NEARBY</small><b>Gas stations</b><span>Within 5 kilometres</span></div>
+        <div className="miniMap"><i className="mapRoad mapRoadOne" /><i className="mapRoad mapRoadTwo" /><span className="mapPin pinOne">●</span><span className="mapPin pinTwo">●</span><span className="mapPin pinThree">●</span><b>⌖</b></div>
+        <div className="stationList"><span><i>1</i><b>City Fuel</b><small>1.2 km · Open</small></span><span><i>2</i><b>North Station</b><small>2.8 km · Open</small></span></div>
+        <div className="mobileNav autoNav"><i>⌂</i><i>＋</i><i>◫</i></div>
+    </div>;
+}
+
+function AutoCareFuelEntry() {
+    return <div className="mobileScreen autoScreen">
+        <div className="mobileStatus"><span>9:41</span><span>● ◒</span></div>
+        <div className="autoHeader"><small>NEW EXPENSE</small><b>Add fuel</b><span>Vehicle 01 · Today</span></div>
+        <div className="fuelEntryCard">
+            <div><small>ODOMETER</small><b>42,360 km</b></div>
+            <div><small>VOLUME</small><b>46.8 litres</b></div>
+            <div><small>PRICE / LITRE</small><b>€1.74</b></div>
+            <div><small>TOTAL</small><strong>€81.43</strong></div>
+        </div>
+        <div className="reminderToggle"><span><b>Full tank</b><small>Used for consumption reports</small></span><i /></div>
+        <span className="reminderSave">Save fuel expense</span>
+        <div className="mobileNav autoNav"><i>⌂</i><i>＋</i><i>◫</i></div>
+    </div>;
+}
+
+function MobileVisual({ slug, screen }: { slug: "fitness-tracker" | "autocare"; screen: MobileScreenKey }) {
     const fitness = slug === "fitness-tracker";
-    const front = fitness
-        ? screen === "primary" ? <FitnessCalories /> : screen === "secondary" ? <FitnessDiary /> : <FitnessFoodSearch />
-        : screen === "primary" ? <AutoCareDashboard /> : screen === "secondary" ? <AutoCareExpenses /> : <AutoCareReminder />;
-    const back = fitness
-        ? screen === "primary" ? <FitnessDiary /> : screen === "secondary" ? <FitnessFoodSearch /> : <FitnessCalories />
-        : screen === "primary" ? <AutoCareExpenses /> : screen === "secondary" ? <AutoCareReminder /> : <AutoCareDashboard />;
+    const fitnessScreens = { primary: <FitnessCalories />, secondary: <FitnessDiary />, tertiary: <FitnessFoodSearch />, quaternary: <FitnessMacros />, quinary: <FitnessFoodDetail />, senary: <FitnessMealEditor /> };
+    const autoScreens = { primary: <AutoCareDashboard />, secondary: <AutoCareExpenses />, tertiary: <AutoCareReminder />, quaternary: <AutoCareVehicle />, quinary: <AutoCareMap />, senary: <AutoCareFuelEntry /> };
+    const backScreen: Record<MobileScreenKey, MobileScreenKey> = { primary: "secondary", secondary: "tertiary", tertiary: "quaternary", quaternary: "quinary", quinary: "senary", senary: "primary" };
+    const front = fitness ? fitnessScreens[screen] : autoScreens[screen];
+    const back = fitness ? fitnessScreens[backScreen[screen]] : autoScreens[backScreen[screen]];
 
     return <div className="mobileVisualStage" aria-hidden="true">
         <div className="mobileGlow" />

@@ -10,8 +10,8 @@ type ProjectGalleryProps = {
 };
 
 const webGallery: Partial<Record<CaseSlug, string[]>> = {
-    lumynery: ["/work/lumynery/services.jpg", "/work/lumynery/catalog.jpg", "/work/lumynery/contact.jpg", "/work/lumynery/menu-cards.jpg"],
-    "tire-shop": ["/work/tire-shop/home.jpg", "/work/tire-shop/search.jpg", "/work/tire-shop/brands.jpg", "/work/tire-shop/about.jpg"],
+    lumynery: ["/work/lumynery/services.jpg", "/work/lumynery/catalog.jpg", "/work/lumynery/contact.jpg", "/work/lumynery/menu-cards.jpg", "/work/lumynery/service-detail.jpg", "/work/lumynery/about.jpg"],
+    "tire-shop": ["/work/tire-shop/home.jpg", "/work/tire-shop/search.jpg", "/work/tire-shop/fitment.jpg", "/work/tire-shop/brands.jpg", "/work/tire-shop/about.jpg", "/work/tire-shop/contacts.jpg"],
 };
 
 export default function ProjectGallery({ slug, name, previewLabel, imageLabel }: ProjectGalleryProps) {
@@ -27,5 +27,8 @@ export default function ProjectGallery({ slug, name, previewLabel, imageLabel }:
         <CaseVisual name={name} previewLabel={previewLabel} screen="primary" slug={slug} />
         <CaseVisual name={name} previewLabel={previewLabel} screen="secondary" slug={slug} />
         <CaseVisual name={name} previewLabel={previewLabel} screen="tertiary" slug={slug} />
+        <CaseVisual name={name} previewLabel={previewLabel} screen="quaternary" slug={slug} />
+        <CaseVisual name={name} previewLabel={previewLabel} screen="quinary" slug={slug} />
+        <CaseVisual name={name} previewLabel={previewLabel} screen="senary" slug={slug} />
     </div>;
 }
