@@ -858,6 +858,23 @@
     line-height: 1.6;
 }
 
+.formStatus p {
+    margin: 0;
+}
+
+.formStatus p + p {
+    margin-top: 7px;
+}
+
+.formReference {
+    width: fit-content;
+    padding: 4px 8px;
+    background: rgba(255,255,255,.7);
+    color: #1e5040;
+    font-size: 11px;
+    letter-spacing: .06em;
+}
+
 .formSuccess {
     color: #285f45;
     background: #e5f3eb;

@@ -12,11 +12,14 @@ type Status = "idle" | "sending" | "success" | "error";
 export default function AppointmentForm({ t, locale }: AppointmentFormProps) {
     const [errors, setErrors] = useState<Errors>({});
     const [status, setStatus] = useState<Status>("idle");
+    const [reference, setReference] = useState<string | null>(null);
+    const [confirmationEmail, setConfirmationEmail] = useState("");
 
     const submit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formElement = event.currentTarget;
         setStatus("idle");
+        setReference(null);
         const form = new FormData(formElement);
         const values = Object.fromEntries(form.entries());
         const nextErrors: Errors = {};
@@ -36,8 +39,12 @@ export default function AppointmentForm({ t, locale }: AppointmentFormProps) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ kind: "appointment", locale, data: values }),
             });
-            if (!response.ok) throw new Error("Submission failed");
+            const result: unknown = await response.json().catch(() => null);
+            if (!response.ok || !result || typeof result !== "object" || !("success" in result) || result.success !== true || !("reference" in result) || typeof result.reference !== "string") throw new Error("Submission failed");
             formElement.reset();
+            setErrors({});
+            setReference(result.reference);
+            setConfirmationEmail(String(values.email).trim());
             setStatus("success");
         } catch {
             setStatus("error");
@@ -54,7 +61,7 @@ export default function AppointmentForm({ t, locale }: AppointmentFormProps) {
             <div className={`${styles.field} ${styles.fieldFull}`}><label htmlFor="appointment-topic">{t.topic}</label><textarea id="appointment-topic" name="topic" placeholder={t.placeholder} aria-invalid={Boolean(errors.topic)} aria-describedby={errors.topic ? "appointment-topic-error" : undefined} />{errors.topic && <span id="appointment-topic-error" className={styles.fieldError}>{errors.topic}</span>}</div>
             <div className={styles.honeypot} aria-hidden="true"><label htmlFor="appointment-website">Website</label><input id="appointment-website" name="website" tabIndex={-1} autoComplete="off" /></div>
             <button className="darkButton" type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.submit} <span aria-hidden="true">→</span></button>
-            {status === "success" && <p className={`${styles.formStatus} ${styles.formSuccess}`} role="status">{t.success}</p>}
+            {status === "success" && reference && <div className={`${styles.formStatus} ${styles.formSuccess}`} role="status"><p>{t.success}</p><p className={styles.formReference}>{t.reference}: <strong>{reference}</strong></p><p>{t.confirmationSent.replace("{email}", confirmationEmail)}</p></div>}
             {status === "error" && <p className={`${styles.formStatus} ${styles.formFailure}`} role="alert">{t.sendError}</p>}
         </form>
     );

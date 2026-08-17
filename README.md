@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Contact form email
 
-Project briefs and appointment requests are delivered through Resend. Copy `.env.example` to `.env.local`, add a `RESEND_API_KEY`, and set `RESEND_FROM_EMAIL` to an address on a verified sending domain. `CONTACT_RECIPIENT_EMAIL` controls the inbox that receives every form submission and currently defaults to `martinntsvetanov@gmail.com`.
+Project briefs and appointment requests are delivered through the Hostinger SMTP mailbox. Copy `.env.example` to `.env.local` and configure the `SMTP_*` and `MAIL_*` values. `MAIL_FROM_ADDRESS`, `MAIL_TO_ADDRESS`, and `SMTP_USER` should all use `hello@builtfurther.com`; the endpoint sends an internal notification there and an acknowledgement to the visitor. In Netlify, add the same variables under **Project configuration → Environment variables**, then redeploy.
 
 ## Getting Started
 
