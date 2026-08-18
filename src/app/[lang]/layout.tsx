@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { contactEmail } from "@/config/contact";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { hasLocale, locales } from "@/i18n/config";
+import { homePreviewImage } from "@/i18n/metadata";
 import "../globals.css";
 
 type Props = { children: React.ReactNode; params: Promise<{ lang: string }> };
@@ -20,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: { default: common.meta.defaultTitle, template: `%s | ${common.brand.name}` },
         description: common.meta.defaultDescription,
         keywords: [...common.meta.keywords],
-        openGraph: { type: "website", siteName: common.brand.name, title: common.meta.defaultTitle, description: common.meta.defaultDescription, locale: lang },
-        twitter: { card: "summary_large_image", title: common.meta.defaultTitle, description: common.meta.defaultDescription },
+        openGraph: { type: "website", siteName: common.brand.name, title: common.meta.defaultTitle, description: common.meta.defaultDescription, locale: lang, images: [homePreviewImage] },
+        twitter: { card: "summary_large_image", title: common.meta.defaultTitle, description: common.meta.defaultDescription, images: [homePreviewImage] },
     };
 }
 
