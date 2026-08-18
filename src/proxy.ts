@@ -9,7 +9,12 @@ export function proxy(request: NextRequest) {
     const saved = request.cookies.get(localeCookie)?.value;
     const locale = saved && hasLocale(saved) ? saved : defaultLocale;
     const url = request.nextUrl.clone();
-    url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
+    if (pathname === "/") {
+        url.pathname = `/${locale}`;
+        return NextResponse.rewrite(url);
+    }
+
+    url.pathname = `/${locale}${pathname}`;
     return NextResponse.redirect(url);
 }
 
