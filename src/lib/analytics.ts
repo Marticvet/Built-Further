@@ -26,7 +26,7 @@ export async function enableAnalytics() {
     const posthog = await loadPostHog();
     if (!posthogInitialized) {
         posthog.init(projectToken, {
-            api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://eu.i.posthog.com",
+            api_host: "/bfx",
             ui_host: process.env.NEXT_PUBLIC_POSTHOG_UI_HOST || "https://eu.posthog.com",
             defaults: "2026-05-30",
             autocapture: {

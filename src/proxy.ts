@@ -4,7 +4,14 @@ import { defaultLocale, hasLocale, localeCookie } from "@/i18n/config";
 export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const firstSegment = pathname.split("/")[1];
-    if (hasLocale(firstSegment)) return NextResponse.next();
+    if (hasLocale(firstSegment)) {
+        if (pathname.length > 1 && pathname.endsWith("/")) {
+            const url = new URL(request.url);
+            url.pathname = pathname.slice(0, -1);
+            return NextResponse.redirect(url);
+        }
+        return NextResponse.next();
+    }
 
     const saved = request.cookies.get(localeCookie)?.value;
     const locale = saved && hasLocale(saved) ? saved : defaultLocale;
@@ -14,8 +21,8 @@ export function proxy(request: NextRequest) {
         return NextResponse.rewrite(url);
     }
 
-    url.pathname = `/${locale}${pathname}`;
+    url.pathname = `/${locale}${pathname.replace(/\/$/, "")}`;
     return NextResponse.redirect(url);
 }
 
-export const config = { matcher: ["/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\..*).*)"] };
+export const config = { matcher: ["/((?!api|bfx|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\..*).*)"] };
