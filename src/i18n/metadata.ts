@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { alternateLanguages, localePath, type Locale } from "./config";
 
 export const homePreviewImage = {
-    url: "/home-preview.png",
+    url: "https://builtfurther.com/og/built-further-preview-v2.jpg",
     width: 1200,
     height: 630,
+    type: "image/jpeg",
     alt: "Built Further — Software products engineered to last.",
 };
 

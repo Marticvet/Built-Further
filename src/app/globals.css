@@ -242,6 +242,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .siteContainer { width: calc(100% - 32px); }
   .siteBrand { font-size: 16px; }
   .siteBrandMark { transform: scale(.9) skewY(-13deg); transform-origin: left center; }
+  .sectionEyebrow { font-size: 12px; letter-spacing: 2px; }
+  .darkButton, .lightButton, .textLink { font-size: 16px; }
+  .languageMobile > span { font-size: 11px; letter-spacing: 2px; }
+  .languageMobile a { font-size: 14px !important; }
   .notFoundPage { min-height: calc(100svh - 74px); padding: 82px 0; }
   .notFoundCopy h1 { font-size: clamp(48px,15vw,68px); }
   .notFoundCopy > p:not(.sectionEyebrow) { font-size: 16px; }
@@ -249,11 +253,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .finalCta { padding: 85px 0; }
   .finalCta h2 { font-size: clamp(43px,13vw,65px); }
   .finalCtaInner > div { align-items: flex-start; flex-direction: column; }
+  .finalCta small { color: #aebac3; font-size: 15px; line-height: 1.65; }
   .footerGrid { grid-template-columns: 1fr 1fr; gap: 45px 25px; }
   .footerBrand { grid-column: 1 / -1; }
+  .footerBrand p { font-size: 16px; }
+  .footerColumn h3 { font-size: 12px; letter-spacing: 2px; }
+  .footerColumn a { font-size: 15px; }
   .footerContact { grid-column: 1 / -1; }
-  .footerBottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .footerContact p { color: #aebac3; font-size: 14px; }
+  .footerBottom { align-items: flex-start; flex-direction: column; gap: 8px; color: #aebac3; font-size: 12px; line-height: 1.6; }
   .analyticsConsent { left: 12px; right: 12px; bottom: 12px; grid-template-columns: 1fr; align-items: stretch; gap: 22px; padding: 24px 20px; }
+  .analyticsConsent .sectionEyebrow { font-size: 11px; }
+  .analyticsConsentCopy > p:last-child { font-size: 15px; }
+  .analyticsConsentActions button { font-size: 14px; }
   .analyticsConsentActions { flex-direction: column-reverse; align-items: stretch; }
   .analyticsConsentActions button { width: 100%; }
   .projectScreenshotGrid,.projectMockupGrid { grid-template-columns: 1fr; }
