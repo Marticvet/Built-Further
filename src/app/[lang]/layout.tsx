@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AnalyticsConsent from "@/components/AnalyticsConsent";
 import { contactEmail } from "@/config/contact";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { hasLocale, locales } from "@/i18n/config";
@@ -38,6 +39,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <Navbar locale={lang} t={dictionary.common} />
                 <main>{children}</main>
                 <Footer locale={lang} t={dictionary.common} services={dictionary.services.items} />
+                <AnalyticsConsent t={dictionary.common.analytics} />
             </body>
         </html>
     );

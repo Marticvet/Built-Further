@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 Project briefs and appointment requests are delivered through the Hostinger SMTP mailbox. Copy `.env.example` to `.env.local` and configure the `SMTP_*` and `MAIL_*` values. `MAIL_FROM_ADDRESS`, `MAIL_TO_ADDRESS`, and `SMTP_USER` should all use `hello@builtfurther.com`; the endpoint sends an internal notification there and an acknowledgement to the visitor. In Netlify, add the same variables under **Project configuration → Environment variables**, then redeploy.
 
+## Product analytics
+
+The site has a consent-gated PostHog integration for landing-page attribution, page views and duration, click autocapture, heatmaps, dead clicks, web performance, and session replay. Create a PostHog Cloud project in the EU region, then add its project token and hosts from `.env.example` to `.env.local` and Netlify. Redeploy after setting `NEXT_PUBLIC_*` variables because Next.js embeds them at build time.
+
+No PostHog code is loaded until a visitor allows analytics. Visitors can withdraw consent using **Privacy choices** in the footer. Session replay masks every form input, does not record console output or cross-origin iframes, and only records sessions when Session Replay is enabled in the PostHog project. Keep the site's privacy notice and PostHog data-processing settings aligned with the production configuration.
+
 ## Getting Started
 
 First, run the development server:
