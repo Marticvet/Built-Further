@@ -15,12 +15,15 @@
     max-width: 870px;
 
     h1 {
+        max-inline-size: 100%;
         margin-top: 30px;
         color: #17202a;
         font-size: clamp(58px, 7vw, 100px);
         line-height: .98;
         font-weight: 520;
         letter-spacing: -.025em;
+        overflow-wrap: anywhere;
+        hyphens: auto;
     }
 
     >p:not(:first-child) {
@@ -1011,7 +1014,9 @@
     }
 
     .pageHeroCopy h1 {
-        font-size: clamp(50px, 16vw, 72px);
+        font-size: clamp(46px, 13.5vw, 60px);
+        line-height: 1.02;
+        letter-spacing: -.035em;
     }
 
     .pageHeroCopy>p:not(:first-child) {

@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
-import Link from "next/link";
 import LanguageSelector from "./LanguageSelector";
+import ScrollToTopLink from "./ScrollToTopLink";
 import { localePath, type Locale } from "@/i18n/config";
 import type { CommonDictionary } from "@/i18n/get-dictionary";
 import styles from "../scss/navbar/navbar.module.scss";
@@ -40,9 +40,9 @@ export default function MobileNavigation({ locale, t, links }: MobileNavigationP
             if (event.target instanceof Element && event.target.closest("a")) closeMenu();
         }}>
             <LanguageSelector mobile locale={locale} t={t.languages} accessibilityLabel={t.accessibility.selectLanguage} />
-            {links.map(([label, path]) => <Link key={path} href={localePath(locale, path)}>{label}</Link>)}
-            <Link href={localePath(locale, "/contact")}>{t.nav.contact}</Link>
-            <Link href={localePath(locale, "/book")}>{t.actions.bookCall}</Link>
+            {links.map(([label, path]) => <ScrollToTopLink key={path} href={`${localePath(locale, path)}#top`}>{label}</ScrollToTopLink>)}
+            <ScrollToTopLink href={`${localePath(locale, "/contact")}#top`}>{t.nav.contact}</ScrollToTopLink>
+            <ScrollToTopLink href={`${localePath(locale, "/book")}#top`}>{t.actions.bookCall}</ScrollToTopLink>
         </div>
     </details>;
 }

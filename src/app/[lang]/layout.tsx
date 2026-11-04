@@ -37,7 +37,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <body className="min-h-full flex flex-col">
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
                 <Navbar locale={lang} t={dictionary.common} />
-                <main>{children}</main>
+                <main id="top">{children}</main>
                 <Footer locale={lang} t={dictionary.common} services={dictionary.services.items} />
                 <AnalyticsConsent t={dictionary.common.analytics} />
             </body>

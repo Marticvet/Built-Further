@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef } from "react";
 import { locales, type Locale } from "@/i18n/config";
 import type { CommonDictionary } from "@/i18n/get-dictionary";
+import ScrollToTopLink from "./ScrollToTopLink";
 
 type LanguageSelectorProps = { locale: Locale; t: CommonDictionary["languages"]; accessibilityLabel: string; mobile?: boolean };
 
@@ -20,7 +20,7 @@ export default function LanguageSelector({ locale, t, accessibilityLabel, mobile
     const selectorRef = useRef<HTMLDetailsElement>(null);
     const closeSelector = useCallback(() => selectorRef.current?.removeAttribute("open"), []);
     const suffix = pathname.replace(/^\/(en|bg|de)(?=\/|$)/, "") || "";
-    const switchHref = (nextLocale: Locale) => `/api/locale?locale=${nextLocale}&path=${encodeURIComponent(`/${nextLocale}${suffix}`)}`;
+    const switchHref = (nextLocale: Locale) => `/api/locale?locale=${nextLocale}&path=${encodeURIComponent(`/${nextLocale}${suffix}#top`)}`;
 
     useEffect(() => {
         const handlePointerDown = (event: PointerEvent) => {
@@ -40,7 +40,7 @@ export default function LanguageSelector({ locale, t, accessibilityLabel, mobile
     }, [closeSelector]);
 
     if (mobile) {
-        return <div className="languageMobile" aria-label={accessibilityLabel}><span>{t.label}</span><div>{locales.map((option) => <Link className={option === locale ? "isActive" : ""} href={switchHref(option)} key={option}><Image className="languageFlag" src={languageFlags[option]} alt="" width={60} height={40} aria-hidden="true" />{option.toUpperCase()}</Link>)}</div></div>;
+        return <div className="languageMobile" aria-label={accessibilityLabel}><span>{t.label}</span><div>{locales.map((option) => <ScrollToTopLink className={option === locale ? "isActive" : ""} href={switchHref(option)} key={option}><Image className="languageFlag" src={languageFlags[option]} alt="" width={60} height={40} aria-hidden="true" />{option.toUpperCase()}</ScrollToTopLink>)}</div></div>;
     }
 
     return (
@@ -50,7 +50,7 @@ export default function LanguageSelector({ locale, t, accessibilityLabel, mobile
                 <span className="languageChevron" aria-hidden="true">⌄</span>
             </summary>
             <div>
-                {locales.map((option) => <Link className={option === locale ? "isActive" : ""} href={switchHref(option)} onClick={closeSelector} key={option}><span className="languageOption"><Image className="languageFlag" src={languageFlags[option]} alt="" width={60} height={40} aria-hidden="true" /><span>{t[option]}</span></span>{option === locale && <b aria-label={t.current}>✓</b>}</Link>)}
+                {locales.map((option) => <ScrollToTopLink className={option === locale ? "isActive" : ""} href={switchHref(option)} onClick={closeSelector} key={option}><span className="languageOption"><Image className="languageFlag" src={languageFlags[option]} alt="" width={60} height={40} aria-hidden="true" /><span>{t[option]}</span></span>{option === locale && <b aria-label={t.current}>✓</b>}</ScrollToTopLink>)}
             </div>
         </details>
     );
