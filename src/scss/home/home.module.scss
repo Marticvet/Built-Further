@@ -69,9 +69,15 @@
     > p { margin-top: 14px; color: #cbd4da; font-size: 13px; line-height: 1.65; }
     > p.workType { margin-top: 25px; color: #88c7e6; font-size: 9px; font-weight: 750; letter-spacing: 3px; text-transform: uppercase; }
     h3 { margin-top: 9px; font-size: 30px; font-weight: 560; letter-spacing: -.01em; }
-    > a { display: flex; justify-content: space-between; margin-top: 23px; padding-top: 17px; color: #fff; border-top: 1px solid rgba(255,255,255,.17); text-decoration: none; font-size: 11px; font-weight: 750; letter-spacing: 3px; text-transform: uppercase; }
-    > a span { color: #88c7e6; font-size: 17px; transition: transform .2s ease; } > a:hover span { transform: translateX(5px); }
 }
+.workActions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 23px; padding-top: 17px; border-top: 1px solid rgba(255,255,255,.17); }
+.liveAction,.caseAction { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; font-size: 11px; font-weight: 750; letter-spacing: 2px; text-transform: uppercase; }
+.liveAction { padding: 12px 14px; color: #17202a; background: #88c7e6; }
+.liveAction:hover { color: #fff; background: #354658; }
+.caseAction { color: #fff; }
+.caseAction span,.liveAction span { color: #88c7e6; font-size: 17px; transition: transform .2s ease; }
+.liveAction span { color: inherit; }.caseAction:hover span,.liveAction:hover span { transform: translateX(5px); }
+.projectStatus { padding: 7px 10px; color: #cbd4da; border: 1px solid rgba(255,255,255,.3); font-size: 9px; font-weight: 750; letter-spacing: 1.5px; text-transform: uppercase; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; span { padding: 7px 10px; color: #eff8fc; background: rgba(136,199,230,.1); border: 1px solid rgba(136,199,230,.45); box-shadow: inset 0 -2px rgba(136,199,230,.28); font-size: 8px; font-weight: 750; letter-spacing: 1.1px; text-transform: uppercase; } }
 
 .principlesSection { background: #f5f7f8; }
@@ -142,7 +148,7 @@
     .serviceCard b { font-size: 13px; letter-spacing: 2px; }
     .workCard > p { font-size: 16px; line-height: 1.7; }
     .workCard > p.workType { font-size: 12px; letter-spacing: 2px; }
-    .workCard > a { font-size: 14px; letter-spacing: 2px; }
+    .liveAction,.caseAction { font-size: 12px; letter-spacing: 1.4px; }
     .tags span { font-size: 11px; letter-spacing: .7px; }
     .principlesGrid { grid-template-columns: 1fr; }
     .principlesGrid article { min-height: 265px; }

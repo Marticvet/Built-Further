@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CaseVisual from "@/components/CaseVisual";
 import FinalCta from "@/components/FinalCta";
 import HeroDashboard from "@/components/HeroDashboard";
+import ProjectActions from "@/components/ProjectActions";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { hasLocale, localePath } from "@/i18n/config";
 import { localizedMetadata } from "@/i18n/metadata";
@@ -44,7 +45,7 @@ export default async function Home({ params }: Props) {
 
         <section className={styles.workSection}><div className="siteContainer">
             <div className={`${styles.sectionHeading} ${styles.sectionHeadingDark}`}><div><p className="sectionEyebrow sectionEyebrowLight">{t.home.work.eyebrow}</p><h2>{t.home.work.titleLine1}<br />{t.home.work.titleLine2}</h2></div><Link className="textLink" href={localePath(lang, "/work")}>{t.common.actions.seeAllWork} <span aria-hidden="true">→</span></Link></div>
-            <div className={styles.workGrid}>{t.work.projects.map((project) => <article className={styles.workCard} key={project.slug}><CaseVisual slug={project.slug} name={project.name} previewLabel={t.common.accessibility.productPreview} /><p className={styles.workType}>{project.type}</p><h3>{project.name}</h3><p>{project.description}</p><div className={styles.tags}>{project.services.map((service) => <span key={service}>{service}</span>)}</div><Link href={localePath(lang, `/work/${project.slug}`)}>{t.common.actions.viewCaseStudy} <span aria-hidden="true">→</span></Link></article>)}</div>
+            <div className={styles.workGrid}>{t.work.projects.map((project) => <article className={styles.workCard} key={project.slug}><CaseVisual slug={project.slug} name={project.name} previewLabel={t.common.accessibility.productPreview} /><p className={styles.workType}>{project.type}</p><h3>{project.name}</h3><p>{project.description}</p><div className={styles.tags}>{project.services.map((service) => <span key={service}>{service}</span>)}</div><ProjectActions caseStudyClassName={styles.caseAction} caseStudyHref={localePath(lang, `/work/${project.slug}`)} className={styles.workActions} labels={t.common.actions} liveClassName={styles.liveAction} slug={project.slug} statusClassName={styles.projectStatus} /></article>)}</div>
         </div></section>
 
         <section className={styles.principlesSection}><div className="siteContainer">

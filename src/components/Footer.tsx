@@ -6,6 +6,9 @@ import type { CommonDictionary, Dictionary } from "@/i18n/get-dictionary";
 
 export default function Footer({ locale, t, services }: { locale: Locale; t: CommonDictionary; services: Dictionary["services"]["items"] }) {
     const exploreLinks = [[t.nav.work, "/work"], [t.nav.process, "/process"], [t.nav.about, "/about"], [t.nav.contact, "/contact"], [t.actions.bookCall, "/book"]] as const;
+    const legalLinks = locale === "en"
+        ? [["AutoCare Support", "/en/autocare/support"], ["AutoCare Privacy", "/en/autocare/privacy"], ["AutoCare Terms", "/en/autocare/terms"]] as const
+        : locale === "de" ? [["Impressum", "/de/impressum"]] as const : [];
     return (
         <footer className="footer">
             <div className="siteContainer footerGrid">
@@ -14,7 +17,7 @@ export default function Footer({ locale, t, services }: { locale: Locale; t: Com
                 <div className="footerColumn"><h3>{t.footer.explore}</h3>{exploreLinks.map(([label, path]) => <Link href={localePath(locale, path)} key={path}>{label}</Link>)}</div>
                 <div className="footerColumn footerContact"><h3>{t.footer.start}</h3><Link href={localePath(locale, "/contact")}>{t.footer.tellUs} <span aria-hidden="true">→</span></Link><p>{t.footer.location}</p></div>
             </div>
-            <div className="siteContainer footerBottom"><span>© {new Date().getFullYear()} {t.footer.copyright}</span><AnalyticsSettingsButton label={t.analytics.settings} /><span>{t.footer.closing}</span></div>
+            <div className="siteContainer footerBottom"><span>© {new Date().getFullYear()} {t.footer.copyright}</span><div className="footerUtilityLinks"><AnalyticsSettingsButton label={t.analytics.settings} />{legalLinks.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}</div><span>{t.footer.closing}</span></div>
         </footer>
     );
 }

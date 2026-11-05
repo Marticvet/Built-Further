@@ -298,6 +298,12 @@
     }
 }
 
+.caseActions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 31px; }
+.caseActions :global(.darkButton) { margin: 0; }
+.caseActions :global(.textLink) { margin: 0; }
+.projectStatus { padding: 8px 11px; color: #354658; background: #edf7fb; border: 1px solid #b7ddea; font-size: 9px; font-weight: 750; letter-spacing: 1.2px; text-transform: uppercase; }
+.developmentCredit { margin-top: 22px; color: #596675; font-size: 13px; line-height: 1.7; }
+
 .tagList {
     display: flex;
     flex-wrap: wrap;
