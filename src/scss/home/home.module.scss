@@ -83,7 +83,7 @@
 .principlesSection { background: #f5f7f8; }
 .principlesGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
 .principlesGrid article { position: relative; min-height: 300px; overflow: hidden; padding: 34px 30px; background: #fff; border: 1px solid #e5e9ec;
-    > span { position: absolute; right: 18px; top: -30px; color: rgba(136,199,230,.23); font-size: 104px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+    > span { position: absolute; right: 18px; top: -8px; color: rgba(136,199,230,.23); font-size: 104px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
     h3 { position: relative; margin-top: 118px; color: #17202a; font-size: 22px; font-weight: 600; letter-spacing: -.005em; }
     p { position: relative; margin-top: 14px; color: #596675; font-size: 13px; line-height: 1.7; }
 }
