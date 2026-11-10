@@ -6,9 +6,13 @@ import type { CommonDictionary, Dictionary } from "@/i18n/get-dictionary";
 
 export default function Footer({ locale, t, services }: { locale: Locale; t: CommonDictionary; services: Dictionary["services"]["items"] }) {
     const exploreLinks = [[t.nav.work, "/work"], [t.nav.process, "/process"], [t.nav.about, "/about"], [t.nav.contact, "/contact"], [t.actions.bookCall, "/book"]] as const;
-    const legalLinks = locale === "en"
-        ? [["AutoCare Support", "/en/autocare/support"], ["AutoCare Privacy", "/en/autocare/privacy"], ["AutoCare Terms", "/en/autocare/terms"]] as const
-        : locale === "de" ? [["Impressum", "/de/impressum"]] as const : [];
+    const autoCareLabels: Record<Locale, readonly [string, string, string]> = {
+        en: ["AutoCare Support", "AutoCare Privacy", "AutoCare Terms"],
+        de: ["AutoCare Hilfe", "AutoCare Datenschutz", "AutoCare Nutzungsbedingungen"],
+        bg: ["Поддръжка за AutoCare", "Поверителност на AutoCare", "Условия за AutoCare"],
+    };
+    const [support, privacy, terms] = autoCareLabels[locale];
+    const legalLinks = [...(locale === "de" ? [["Impressum", "/de/impressum"]] : []), [support, localePath(locale, "/autocare/support")], [privacy, localePath(locale, "/autocare/privacy")], [terms, localePath(locale, "/autocare/terms")]] as const;
     return (
         <footer className="footer">
             <div className="siteContainer footerGrid">

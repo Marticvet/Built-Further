@@ -8,7 +8,7 @@ Internal release-preparation record. It is not public-facing copy and does not a
 - AutoCare v1 does not enable Fleet, receipt OCR, advertising, analytics or a crash-reporting SDK.
 - The Supabase plan is Free. Do not claim managed daily backups. Supabase documents daily managed backups for Pro, Team and Enterprise, and recommends that Free-tier projects create and retain their own exports instead. Database backups do not restore deleted Storage objects. See <https://supabase.com/docs/guides/platform/backups>.
 - The app's deletion flow requires an online connection and no pending uploads. It invokes the `delete-account` Edge Function, which removes owned document-storage paths and then calls Supabase Auth administrative user deletion. The app then signs out and clears its local PowerSync store.
-- The deletion flow does **not** call a RevenueCat customer-deletion endpoint. The only RevenueCat identity cleanup in the client is `Purchases.logOut()`. Production RevenueCat-customer deletion therefore needs a separately approved operational or technical process. It must not be represented as automatic.
+- Current AutoCare release evidence records a server-side RevenueCat deletion queue: after Supabase Auth deletion is confirmed, an asynchronous RevenueCat customer-deletion request is made and later confirmation is recorded. This is not immediate deletion, does not cancel an Apple subscription, and its retention/runbook still needs owner and legal approval before being represented as a completed provider deletion.
 
 ## Provider dashboard and contract checklist
 
