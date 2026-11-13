@@ -5,7 +5,7 @@ import { localePath, type Locale } from "@/i18n/config";
 import type { CommonDictionary, Dictionary } from "@/i18n/get-dictionary";
 
 export default function Footer({ locale, t, services }: { locale: Locale; t: CommonDictionary; services: Dictionary["services"]["items"] }) {
-    const exploreLinks = [[t.nav.work, "/work"], [t.nav.process, "/process"], [t.nav.about, "/about"], [t.nav.contact, "/contact"], [t.actions.bookCall, "/book"]] as const;
+    const exploreLinks = [[t.nav.work, "/work"], [t.nav.process, "/process"], [t.nav.about, "/about"], [t.nav.contact, "/contact"]] as const;
     const autoCareLabels: Record<Locale, readonly [string, string, string]> = {
         en: ["AutoCare Support", "AutoCare Privacy", "AutoCare Terms"],
         de: ["AutoCare Hilfe", "AutoCare Datenschutz", "AutoCare Nutzungsbedingungen"],

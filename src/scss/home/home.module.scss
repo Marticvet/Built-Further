@@ -124,8 +124,9 @@
     .workGrid { gap: 55px 16px; }
 }
 @media (max-width: 820px) {
-    .trustStrip > div { grid-template-columns: repeat(2,1fr); padding: 16px 0; }
-    .trustStrip span { min-height: 48px; display: grid; place-items: center; border: 0; }
+    .trustStrip > div { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 16px 0; }
+    .trustStrip span { min-width: 0; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 10px; border: 0; text-align: center; }
+    .trustStrip span::before { flex: 0 0 5px; margin-right: 0; }
     .trustStrip span:last-child { grid-column: 1 / -1; }
     .servicesSection,.principlesSection,.processSection,.technologySection { padding: 95px 0; }
     .sectionHeading { align-items: flex-start; flex-direction: column; margin-bottom: 48px; }

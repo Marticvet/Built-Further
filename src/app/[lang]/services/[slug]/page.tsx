@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CaseVisual from "@/components/CaseVisual";
 import FinalCta from "@/components/FinalCta";
 import PageHero from "@/components/PageHero";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -8,6 +9,7 @@ import { localizedMetadata } from "@/i18n/metadata";
 import styles from "../../../../scss/pages/pages.module.scss";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
+const serviceVisuals = { "web-applications": "lumynery", "mobile-applications": "autocare", "business-systems": "tire-shop" } as const;
 export function generateStaticParams() { return serviceSlugs.map((slug) => ({ slug })); }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -16,8 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServiceDetailPage({ params }: Props) {
     const { lang, slug } = await params; if (!hasLocale(lang)) notFound(); const t = await getDictionary(lang); const service = t.services.items.find((item) => item.slug === slug); if (!service) notFound();
+    const visualSlug = serviceVisuals[service.slug as keyof typeof serviceVisuals];
+    const visualProject = visualSlug ? t.work.projects.find((project) => project.slug === visualSlug) : undefined;
     return <><PageHero eyebrow={t.services.detail.eyebrow} title={service.title} intro={service.description} action={{ label: t.common.actions.discussProject, href: localePath(lang, "/contact") }} />
         <section className={styles.section}><div className="siteContainer"><div className={styles.detailIntro}><h2>{t.services.detail.title}</h2><p>{service.detail}</p></div><div className={styles.deliverables}>{service.deliverables.map((item, index) => <div key={item}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item}</h3></div>)}</div></div></section>
+        {visualProject && <section className={`${styles.section} ${styles.sectionWash}`}><div className={`siteContainer ${styles.serviceShowcase}`}><div><p className="sectionEyebrow">{t.services.detail.previewEyebrow}</p><h2>{t.services.detail.previewTitle}</h2><p>{t.services.detail.previewDescription}</p></div><CaseVisual eager slug={visualProject.slug} name={visualProject.name} previewLabel={t.common.accessibility.productPreview} /></div></section>}
         <section className={`${styles.section} ${styles.sectionWash}`}><div className={`siteContainer ${styles.split}`}><h2>{t.services.detail.teamTitle}</h2><div className={styles.splitText}><p>{t.services.detail.teamParagraph1}</p><p>{t.services.detail.teamParagraph2}</p></div></div></section>
         <FinalCta locale={lang} t={t.common} /></>;
 }
